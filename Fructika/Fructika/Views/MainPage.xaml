@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Fructika.Views.MainPage"
+            xmlns:pages="clr-namespace:Fructika.Views">
+    <TabbedPage.Children>
+        <NavigationPage Icon="icon_search">
+            <x:Arguments>
+                <pages:SearchPage />
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Icon="icon_groups">
+            <x:Arguments>
+                <pages:GroupsPage />
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Icon="icon_settings">
+            <x:Arguments>
+                <pages:SettingsPage />
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Icon="icon_about">
+            <x:Arguments>
+                <pages:AboutPage />
+            </x:Arguments>
+        </NavigationPage>
+    </TabbedPage.Children>
+</TabbedPage>

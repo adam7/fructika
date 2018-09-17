@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Fructika.Views.FoodDetailPage" Title="{Binding Description}" 
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms" 
+             xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:i18n="clr-namespace:Fructika.Extensions;assembly=Fructika" >
+    <ContentPage.Content>
+        <ContentView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+            <ScrollView>
+                <StackLayout>
+                    <Frame Padding="0">
+                        <StackLayout IsClippedToBounds="True">
+                            <imagecircle:CircleImage HorizontalOptions="Center" Aspect="AspectFill" Margin="18, 0"
+                                                     HeightRequest="150" WidthRequest="150" Source="{Binding Image}" />
+                            <Label Margin="5, 0" Text="{Binding Description}" Style="{DynamicResource TitleStyle}" HorizontalTextAlignment="Center" />
+                            <Label Margin="5, 3" Text="{Binding Group}" Style="{DynamicResource SubtitleTextStyle}" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </Frame>
+                    <StackLayout>
+                        <Label Margin="5" Text="{i18n:Translate FoodDetail_SugarsPer100}" Style="{DynamicResource TitleStyle}" HorizontalTextAlignment="Center" />
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Frame Grid.Row="0" Grid.Column="0" Padding="3" OutlineColor="Gray" Margin="1" HasShadow="False" CornerRadius="9">
+                                <Grid>
+                                    <Label Text="{i18n:Translate FoodDetail_Fructose}" Style="{DynamicResource CaptionStyle}" HorizontalTextAlignment="Center" />
+                                    <Label Text="{Binding Fructose}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                                       FontSize="50" FontAttributes="Bold" TextColor="{Binding FructoseLevelColour}" />
+                                </Grid>
+                            </Frame>
+                            <Frame Grid.Row="0" Grid.Column="1" Padding="3" OutlineColor="Gray" Margin="1" HasShadow="False" CornerRadius="9">
+                                <Grid>
+                                    <Label Grid.Column="0" Text="{i18n:Translate FoodDetail_FructoseGlucoseBalance}" Style="{DynamicResource CaptionStyle}" 
+                                       HorizontalTextAlignment="Center" />
+                                    <chart:SfChart x:Name="fructoseGlucoseChart" Grid.Column="0" BackgroundColor="Transparent" 
+                                               HeightRequest="{Binding Source={x:Reference fructoseGlucoseChart}, Path=Width}">
+                                        <chart:SfChart.Series>
+                                            <chart:DoughnutSeries ItemsSource="{Binding FructoseGlucoseChartData}" StartAngle="180" EndAngle="360">
+                                                <chart:DoughnutSeries.ColorModel>
+                                                    <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding FructoseGlucoseChartColors}" />
+                                                </chart:DoughnutSeries.ColorModel>
+                                            </chart:DoughnutSeries>
+                                        </chart:SfChart.Series>
+                                        <chart:SfChart.Legend>
+                                            <chart:ChartLegend DockPosition="Bottom" />
+                                        </chart:SfChart.Legend>
+                                    </chart:SfChart>
+                                </Grid>
+                            </Frame>
+                            <Frame Grid.Row="1" Grid.ColumnSpan="2" Padding="3" OutlineColor="Gray" Margin="1" HasShadow="False" CornerRadius="9">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <chart:SfChart x:Name="sugarsChart" Grid.Column="0" BackgroundColor="Transparent" 
+                                               HeightRequest="{Binding Source={x:Reference sugarsChart}, Path=Width}">
+                                        <chart:SfChart.Series>
+                                            <chart:DoughnutSeries ItemsSource="{Binding SugarsChartData}">
+                                                <chart:DoughnutSeries.ColorModel>
+                                                    <chart:ChartColorModel Palette="Custom" CustomBrushes="{Binding SugarsChartColors}" />
+                                                </chart:DoughnutSeries.ColorModel>
+                                            </chart:DoughnutSeries>
+                                        </chart:SfChart.Series>
+                                    </chart:SfChart>
+                                    <Grid Grid.Column="1" Margin="3" Padding="3">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="7*" />
+                                            <ColumnDefinition Width="3*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" Grid.Row="0" Text="{i18n:Translate FoodDetail_TotalSugars}" Style="{DynamicResource CaptionStyle}" />
+                                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding TotalSugars}" Style="{DynamicResource CaptionStyle}" 
+                                           HorizontalTextAlignment="End" />
+                                        <Label Grid.Column="0" Grid.Row="1" Text="{i18n:Translate FoodDetail_Fructose}" Style="{DynamicResource CaptionStyle}" 
+                                           TextColor="{Binding FructoseColour}" />
+                                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding Fructose}" Style="{DynamicResource CaptionStyle}" 
+                                           HorizontalTextAlignment="End" />
+                                        <Label Grid.Column="0" Grid.Row="2" Text="{i18n:Translate FoodDetail_Glucose}" Style="{DynamicResource CaptionStyle}" 
+                                           TextColor="{Binding GlucoseColour}" />
+                                        <Label Grid.Column="1" Grid.Row="2" Text="{Binding Glucose}" Style="{DynamicResource CaptionStyle}" 
+                                           HorizontalTextAlignment="End" />
+                                        <Label Grid.Column="0" Grid.Row="3" Text="{i18n:Translate FoodDetail_Maltose}" Style="{DynamicResource CaptionStyle}" 
+                                           TextColor="{Binding MaltoseColour}" />
+                                        <Label Grid.Column="1" Grid.Row="3" Text="{Binding Maltose}" Style="{DynamicResource CaptionStyle}" 
+                                           HorizontalTextAlignment="End" />
+                                        <Label Grid.Column="0" Grid.Row="4" Text="{i18n:Translate FoodDetail_Sucrose}" Style="{DynamicResource CaptionStyle}" 
+                                           TextColor="{Binding SucroseColour}" />
+                                        <Label Grid.Column="1" Grid.Row="4" Text="{Binding Sucrose}" Style="{DynamicResource CaptionStyle}" 
+                                           HorizontalTextAlignment="End" />
+                                    </Grid>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </ContentView>
+    </ContentPage.Content>
+</ContentPage>

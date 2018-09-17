@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:Fructika.Extensions;assembly=Fructika" 
+             x:Class="Fructika.Views.SettingsPage"
+             Title="{i18n:Translate Settings_Title}">
+    <StackLayout>
+        <Frame Padding="0">
+            <StackLayout>
+                <Label Margin="5" Style="{DynamicResource BodyStyle}" Text="{i18n:Translate Settings_FructoseWarningLevelHelpText}" />
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="{i18n:Translate Settings_FructoseWarningLevel}" Style="{DynamicResource ListItemTextStyle}" VerticalTextAlignment="Center" />
+                    <Picker Grid.Column="1" ItemsSource="{Binding WarningLevelLabels}" SelectedItem="{Binding SelectedWarningLevelLabel}"  />
+                </Grid>
+            </StackLayout>                
+        </Frame>
+        <Frame Padding="0">
+            <StackLayout>
+                <Label Margin="5" Style="{DynamicResource BodyStyle}"
+                Text="{i18n:Translate Settings_UnknownFructoseHelpText}" />
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="{i18n:Translate Settings_UnknownFructoseText}" Style="{DynamicResource ListItemTextStyle}" VerticalTextAlignment="Center" />
+                    <Switch Grid.Column="1" IsToggled="{Binding EnableUnknownFructose}" />
+                </Grid>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

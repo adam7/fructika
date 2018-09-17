@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:Fructika.Extensions;assembly=Fructika" 
+             x:Class="Fructika.Views.SearchPage"
+             Title="{i18n:Translate Search_Title}">
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="searchBar" SearchCommand="{Binding SearchFoodsCommand}"
+                       Text="{Binding SearchText}"
+                       Placeholder="{i18n:Translate Search_Search}" HeightRequest="42"   />
+            <Frame IsVisible="{Binding IsSearching}" HorizontalOptions="FillAndExpand">
+                <StackLayout>
+                    <Label Text="{i18n:Translate Search_Searching}" HorizontalTextAlignment="Center" />
+                    <ActivityIndicator IsRunning="{Binding IsSearching}" Color="{StaticResource SecondaryLightColor}" />
+                </StackLayout>
+            </Frame>
+            <Label IsVisible="{Binding ShowNoResults}" Style="{DynamicResource SubtitleStyle}" 
+                   Text="{i18n:Translate Search_NoMatches}" HorizontalTextAlignment="Center" />
+            <ListView x:Name="ItemsListView" 
+                      ItemsSource="{Binding Foods}"
+                      VerticalOptions="FillAndExpand"
+                      RefreshCommand="{Binding SearchFoodsCommand}"
+                      HasUnevenRows="True"
+                      ItemSelected="OnFoodSelected"
+                      IsVisible="{Binding ShowResults}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Source="{Binding Icon}" 
+                                       VerticalOptions="FillAndExpand" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Description}" 
+                                       LineBreakMode="TailTruncation" Style="{DynamicResource SubtitleStyle}" />
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Fructose}" Style="{DynamicResource SubtitleStyle}" 
+                                       HorizontalTextAlignment="End" TextColor="{Binding FructoseLevelColour}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

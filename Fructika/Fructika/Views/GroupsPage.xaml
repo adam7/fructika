@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fructika.Views.GroupsPage"
+             xmlns:i18n="clr-namespace:Fructika.Extensions;assembly=Fructika" 
+             Title="{i18n:Translate Groups_Title}">
+    <ListView x:Name="MyListView"
+            ItemsSource="{Binding Groups}"
+            ItemTapped="Handle_GroupTapped"
+            SeparatorVisibility="None"
+            HasUnevenRows="true">
+        <ListView.Header>
+            <Label Margin="5" Style="{DynamicResource BodyStyle}">
+                <Label.FormattedText >
+                    <FormattedString>
+                        <Span Text="{i18n:Translate Groups_HelpText1}"  />
+                        <Span Text="{i18n:Translate Groups_HelpText2}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </ListView.Header>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Spacing="5" Margin="0, 0, 0, 10">
+                        <Frame Padding="0" Margin="5">
+                            <Grid Padding="0" Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Row="0" Source="{Binding Icon}" VerticalOptions="FillAndExpand" />
+                                <Label Grid.Column="1" Text="{Binding Name}" Style="{DynamicResource ListItemTextStyle}" VerticalTextAlignment="Center" />
+                                <Switch Grid.Column="2" IsToggled="{Binding Enabled}" VerticalOptions="Center"  />
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

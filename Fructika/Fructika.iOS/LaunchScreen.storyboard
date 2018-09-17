@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="201" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="heart">
+                                <rect key="frame" x="87" y="152" width="850" height="464"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" widthSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="group_105699" width="720" height="540"/>
+        <image name="group_109599" width="300" height="230"/>
+        <image name="group_128426" width="300" height="230"/>
+        <image name="group_146792" width="300" height="230"/>
+        <image name="group_156096" width="300" height="230"/>
+        <image name="group_195632" width="300" height="230"/>
+        <image name="group_228657" width="300" height="230"/>
+        <image name="group_254650" width="300" height="230"/>
+        <image name="group_262616" width="300" height="230"/>
+        <image name="group_264152" width="300" height="230"/>
+        <image name="group_267381" width="300" height="230"/>
+        <image name="group_271121" width="300" height="230"/>
+        <image name="group_291658" width="300" height="230"/>
+        <image name="group_296131" width="300" height="230"/>
+        <image name="group_298710" width="300" height="230"/>
+        <image name="group_302505" width="300" height="230"/>
+        <image name="group_326864" width="300" height="230"/>
+        <image name="group_329043" width="300" height="230"/>
+        <image name="group_335257" width="300" height="230"/>
+        <image name="group_365019" width="300" height="230"/>
+        <image name="group_381292" width="300" height="230"/>
+        <image name="group_388602" width="300" height="230"/>
+        <image name="group_394688" width="300" height="230"/>
+        <image name="group_422025" width="300" height="230"/>
+        <image name="group_44723" width="300" height="230"/>
+        <image name="heart" width="256" height="256"/>
+        <image name="icon_about" width="30" height="30"/>
+        <image name="icon_groups" width="30" height="30"/>
+        <image name="icon_group_105699" width="72" height="72"/>
+        <image name="icon_group_109599" width="72" height="72"/>
+        <image name="icon_group_128426" width="72" height="72"/>
+        <image name="icon_group_146792" width="72" height="72"/>
+        <image name="icon_group_156096" width="72" height="72"/>
+        <image name="icon_group_195632" width="72" height="72"/>
+        <image name="icon_group_228657" width="72" height="72"/>
+        <image name="icon_group_254650" width="72" height="72"/>
+        <image name="icon_group_262616" width="72" height="72"/>
+        <image name="icon_group_264152" width="72" height="72"/>
+        <image name="icon_group_267381" width="72" height="72"/>
+        <image name="icon_group_271121" width="72" height="72"/>
+        <image name="icon_group_291658" width="72" height="72"/>
+        <image name="icon_group_296131" width="72" height="72"/>
+        <image name="icon_group_298710" width="72" height="72"/>
+        <image name="icon_group_302505" width="72" height="72"/>
+        <image name="icon_group_326864" width="72" height="72"/>
+        <image name="icon_group_329043" width="72" height="72"/>
+        <image name="icon_group_335257" width="72" height="72"/>
+        <image name="icon_group_365019" width="72" height="72"/>
+        <image name="icon_group_381292" width="72" height="72"/>
+        <image name="icon_group_388602" width="72" height="72"/>
+        <image name="icon_group_394688" width="72" height="72"/>
+        <image name="icon_group_422025" width="72" height="72"/>
+        <image name="icon_group_44723" width="72" height="72"/>
+        <image name="icon_menu" width="48" height="48"/>
+        <image name="icon_search" width="30" height="30"/>
+        <image name="icon_settings" width="30" height="30"/>
+    </resources>
+</document>
