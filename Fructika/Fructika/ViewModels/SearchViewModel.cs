@@ -5,8 +5,6 @@ using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
-using Plugin.Settings;
-using Plugin.Settings.Abstractions;
 using Fructika.Helpers;
 using System.Threading;
 using Fructika.Extensions;
@@ -15,8 +13,6 @@ namespace Fructika.ViewModels
 {
     public class SearchViewModel : BaseViewModel
     {
-        static ISettings AppSettings => CrossSettings.Current;
-
         string searchText = string.Empty;
         bool showResults = false;
         bool showNoResults = false;
@@ -95,7 +91,7 @@ namespace Fructika.ViewModels
             try
             {
                 Foods.Clear();
-                var includUnknownFructose = AppSettings.GetUnknownFructose();
+                var includUnknownFructose = AppPreferences.UnknownFructose;
                 foreach (var food in await FoodDataStore.SearchFoodsAsync(SearchText, includUnknownFructose, cancellationTokenSource.Token))
                 {
                     Foods.Add(new FoodViewModel(food));

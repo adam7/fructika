@@ -1,8 +1,6 @@
 ﻿using Fructika.Helpers;
 using Fructika.Extensions;
 using Fructika.Models;
-using Plugin.Settings;
-using Plugin.Settings.Abstractions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,8 +9,6 @@ namespace Fructika.ViewModels
 {
     public class SettingsViewModel : BaseViewModel
     {
-        static ISettings AppSettings => CrossSettings.Current;
-
         string selectedWarningLevelLabel;
 
         public Dictionary<string, decimal> WarningLevels
@@ -37,32 +33,33 @@ namespace Fructika.ViewModels
             set
             {
                 var warningLevel = WarningLevels.FirstOrDefault(level => level.Key == value).Value;
-                AppSettings.AddOrUpdateValue(Constants.FructoseWarningLevelKey, warningLevel);
+                AppPreferences.FructoseWarningLevel = warningLevel;
                 selectedWarningLevelLabel = value;
             }
         }
 
         public bool EnableUnknownFructose
         {
-            get => AppSettings.GetUnknownFructose();
-            set => AppSettings.AddOrUpdateValue(Constants.UnknownFructoseKey, value);
+            get => AppPreferences.UnknownFructose;
+            set => AppPreferences.UnknownFructose = value;
         }
 
         public decimal FructoseWarningLevel
         {
-            get => AppSettings.GetFructoseWarningLevel();
+            get => AppPreferences.FructoseWarningLevel;
             set
             {
                 OnPropertyChanged(nameof(FructoseWarningLevel));
-                AppSettings.AddOrUpdateValue(Constants.FructoseWarningLevelKey, value);
+                AppPreferences.FructoseWarningLevel = value;
             }
         }
 
         public SettingsViewModel()
         {
-            var fructoseWarningLevel = AppSettings.GetFructoseWarningLevel();
+            var fructoseWarningLevel = AppPreferences.FructoseWarningLevel;
             SelectedWarningLevelLabel = WarningLevels
-                .FirstOrDefault(level => level.Value == fructoseWarningLevel).Key;
+                .FirstOrDefault(level => level.Value == AppPreferences.FructoseWarningLevel)
+                .Key;
         }
     }
 }

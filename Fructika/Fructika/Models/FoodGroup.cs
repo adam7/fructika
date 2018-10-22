@@ -1,22 +1,19 @@
-﻿using Plugin.Settings;
-using Plugin.Settings.Abstractions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using Xamarin.Essentials;
 
 namespace Fructika.Models
 {
     public class FoodGroup
     {
-        static ISettings AppSettings => CrossSettings.Current;
-
         string SettingName { get => Regex.Replace(Name, @"[^A-Za-z0-9]+", ""); }
 
         public bool Enabled
         {
-            get => AppSettings.GetValueOrDefault(SettingName, true);
-            set => AppSettings.AddOrUpdateValue(SettingName, value);
+            get => Preferences.Get(SettingName, true);
+            set => Preferences.Set(SettingName, value);
         }
 
         public string Name { get; private set; }

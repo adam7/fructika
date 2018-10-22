@@ -1,7 +1,6 @@
 ﻿using Fructika.Extensions;
+using Fructika.Helpers;
 using Fructika.Models;
-using Plugin.Settings;
-using Plugin.Settings.Abstractions;
 using Syncfusion.SfChart.XForms;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
@@ -10,8 +9,6 @@ namespace Fructika.ViewModels
 {
     public class FoodViewModel : BaseViewModel
     {
-        static ISettings AppSettings => CrossSettings.Current;
-
         Food Food { get; set; }
         string Title { get; set; }
 
@@ -32,7 +29,7 @@ namespace Fructika.ViewModels
             SucroseColour
         };
 
-        public Color FructoseLevelColour => Food.Fructose.GetValueOrDefault() < AppSettings.GetFructoseWarningLevel() 
+        public Color FructoseLevelColour => Food.Fructose.GetValueOrDefault() < AppPreferences.FructoseWarningLevel 
             ? GetColor("PrimaryDarkColor") : GetColor("SecondaryColor");
         public Color GlucoseColour => GetColor("GlucoseColor");
         public Color FructoseColour => GetColor("FructoseColor");
