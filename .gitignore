@@ -39,6 +39,3 @@ TestResult.xml
 
 # Secrets file for Mobile.BuildTools
 secrets.json
-
-# Keystore file ... can't be too careful
-*.keystore

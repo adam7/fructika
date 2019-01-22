@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+       xmlns:local="clr-namespace:Fructika.Views"
+       RouteHost="companyname.com"
+       RouteScheme="app"
+       Route="fructika"
+       FlyoutBehavior="Flyout"
+       Title="Fructika"
+       x:Class="Fructika.AppShell"
+       Navigating="OnShellNavigating">
+
+    <!--
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXX|                            |XXXXXXXX
+        XXXXXXX'                              'XXXXXXX
+        XXXXXx.                                .xNXXXX
+        XXXNo.        ,ll;.        .;ll,        .oNXXX
+        XXX|.         ,OXNo.      .oNXO,          cXXX
+        XX|            'XXNx.    .xNXX'            |XX
+        X|              .xXXX.  .XXXx.              |X
+        |                .xXXOllOXXx.                |
+        |                .xXXXccXXXx.                |
+        X|              .XXXx.  .xXXX.              |X
+        XXc            ,OXNd.    .dNXO,            cXX
+        XXXl.         ;XXXo.      .oNXX;         .lXXX
+        XXXNd.        'cc,          ,cc'        .dNXXX
+        XXXXXx.                                .xXXXXX
+        XXXXXXO'                              'OXXXXXX
+        XXXXXXXX|                            |XXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+        Shell is an all new way to quickly get started with your application. There are 3 levels to a Shell app:
+        * ShellItem: populates the Flyout menu along with special menu items
+        * ShellSection: groups of 1 or more ContentPage displayed as bottom tabs
+        * ShellContent: a ContentPage host. Multiple ShellContent within a ShellSection are navigable by top tabs
+
+        For more details about building apps with Shell, visit these resources:
+        * MSDN Article: https://aka.ms/xf-msdn
+        * Preview Documentation: https://aka.ms/xf-shell-docs
+        * Blog Introduction: https://aka.ms/xf-40-blog
+
+        PLEASE give us feedback on your experience: good, bad, and ugly.
+        https://www.surveymonkey.com/r/VTJNWTM
+
+        Thanks for trying out this preview! 
+
+        - David Ortinau, Senior Program Manager for Mobile Dev Tools [david.ortinau@microsoft.com]
+    -->
+
+    <!-- 
+        Styles and Resources 
+    -->
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ShellForegroundColor" Value="White" />
+                <Setter Property="Shell.ShellTitleColor" Value="White" />
+                <Setter Property="Shell.ShellDisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.ShellUnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.ShellTabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ShellTabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.ShellTabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.ShellTabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="Black">
+                <Image Aspect="AspectFill" Source="xamagon_preview.png" />
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <!-- Your Pages -->
+    <ShellItem Title="Search" Route="search" >
+        <ShellSection>
+            <ShellContent>
+                <local:SearchPage />
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+
+    <ShellItem Title="Food Groups">
+        <ShellSection>
+            <ShellContent>
+                <local:GroupsPage />
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+    
+    <ShellItem Title="Settings">
+        <ShellSection>
+            <ShellContent>
+                <local:SettingsPage />
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+    
+    <ShellItem Title="About" >
+        <ShellSection>
+            <ShellContent>
+                <local:AboutPage />
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+
+    <!-- Optional Templates 
+    // These may be provided inline as below or as separate classes.
+
+    // This header appears at the top of the Flyout.
+    <Shell.FlyoutHeader>
+		<DataTemplate>
+            <Grid>ContentHere</Grid>
+        </DataTemplate>
+	</Shell.FlyoutHeader>
+
+    // ItemTemplate is for ShellItems as displayed in a Flyout
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                Bindable Properties: Title, Icon
+            </ContentView>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    // MenuItemTemplate is for MenuItems as displayed in a Flyout
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                Bindable Properties: Text, Icon
+            </ContentView>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+    -->
+
+</Shell>

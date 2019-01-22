@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fructika.Views.SettingsPage"
+             Title="Settings">
+    <ContentPage.Content>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection Title="Fructose Settings">
+                    <SwitchCell Text="Include Unknown Fructose" On="{Binding EnableUnknownFructose}" />
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="16, 0">
+                            <Label Text="Fructose Warning Level" VerticalOptions="Center" />
+                            <Picker ItemsSource="{Binding WarningLevelLabels}" SelectedItem="{Binding SelectedWarningLevelLabel}"  
+                                    VerticalOptions="Center" HorizontalOptions="EndAndExpand"  />
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Food Data">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="16, 0">
+                            <Label Text="Refresh Data" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                            <Button Text="Refresh" Clicked="Refresh_Clicked" 
+                                    VerticalOptions="Center" HorizontalOptions="End"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

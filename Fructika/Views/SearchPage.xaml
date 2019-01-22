@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fructika.Views.SearchPage">
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Foods}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.RowSpan="2" Source="group_105699" Aspect="AspectFill" 
+                                   HeightRequest="60" WidthRequest="60" />
+                        <Label Grid.Column="1" Text="{Binding Description}" FontAttributes="Bold" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding FoodGroup}"
+                                   FontAttributes="Italic" VerticalOptions="End" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <StackLayout>
+                    <Label FontAttributes="Italic" FontSize="12" 
+                               HorizontalOptions="Fill" HorizontalTextAlignment="Center"
+                               Text="\/"></Label>
+                    <!--<Label FontAttributes="Bold" FontSize="18" Margin="10,25,10,10"
+                               HorizontalOptions="Fill" HorizontalTextAlignment="Center" 
+                               Text="No results matched your filter."></Label>-->
+                    <Label FontAttributes="Italic" FontSize="12" 
+                               HorizontalOptions="Fill" HorizontalTextAlignment="Center"
+                               Text="{Binding SearchText}"></Label>
+                    <Label FontAttributes="Italic" FontSize="12" 
+                               HorizontalOptions="Fill" HorizontalTextAlignment="Center"
+                               Text="/\"></Label>
+                </StackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>        
+    </ContentPage.Content>
+</ContentPage>
