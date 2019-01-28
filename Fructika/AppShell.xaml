@@ -53,14 +53,39 @@
     -->
     <Shell.Resources>
         <ResourceDictionary>
+
+            <Color x:Key="FructoseColor">#69f0ae</Color>
+            <Color x:Key="GlucoseColor">#448aff</Color>
+            <Color x:Key="MaltoseColor">#ffab40</Color>
+            <Color x:Key="SucroseColor">#18ffff</Color>
+
+            <Color x:Key="PrimaryColor">#69f0ae</Color>
+            <Color x:Key="PrimaryDarkColor">#2bbd7e</Color>
+            <Color x:Key="PrimaryLightColor">#9fffe0</Color>
+            <Color x:Key="SecondaryColor">#ff80ab</Color>
+            <Color x:Key="SecondaryDarkColor">#c94f7c</Color>
+            <Color x:Key="SecondaryLightColor">#ffb2dd</Color>
+            <Color x:Key="HeaderTextColor">#ffffff</Color>
+            <Color x:Key="PrimaryTextColor">#000000</Color>
+            <Color x:Key="SecondaryTextColor">#000000</Color>
+            <Color x:Key="DividerColor">#BDBDBD</Color>
+
+            <Color x:Key="Grey300">#E0E0E0</Color>
+            <Color x:Key="Grey100">#F5F5F5</Color>
+            <Color x:Key="Grey50">#FAFAFA</Color>
+
+            <Style TargetType="Frame">
+                <Setter Property="CornerRadius" Value="16" />
+            </Style>
+
             <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ShellBackgroundColor" Value="{StaticResource PrimaryColor}" />
                 <Setter Property="Shell.ShellForegroundColor" Value="White" />
                 <Setter Property="Shell.ShellTitleColor" Value="White" />
                 <Setter Property="Shell.ShellDisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.ShellUnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.ShellTabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ShellTabBarBackgroundColor" Value="{StaticResource PrimaryColor}" />
                 <Setter Property="Shell.ShellTabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.ShellTabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.ShellTabBarTitleColor" Value="White"/>
@@ -71,7 +96,7 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="Black">
+            <Grid BackgroundColor="White">
                 <Image Aspect="AspectFill" Source="xamagon_preview.png" />
             </Grid>
         </DataTemplate>

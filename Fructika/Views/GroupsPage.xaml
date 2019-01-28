@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fructika.Views.GroupsPage"
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-             Title="{Binding Title}">
+             Title="Food Groups">
     <ContentPage.Content>
         <CarouselView ItemsSource="{Binding Groups}"  
                 HorizontalOptions="FillAndExpand" 

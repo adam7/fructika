@@ -12,7 +12,7 @@ namespace Fructika
             SearchBoxVisibility = SearchBoxVisiblity.Expanded;
             IsSearchEnabled = true;
             ShowsResults = true;
-            Placeholder = "Find a food...";
+            Placeholder = "Food Search";
         }
 
         protected override void OnQueryConfirmed()
